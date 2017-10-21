@@ -65,6 +65,8 @@ def find_table_of_player(url, stat_table):
         tbl_nm = 2
     elif (stat_table == 'adv'):
         tbl_nm = 3
+    else:
+        raise Exception ('invalid stat_table type')
     table = soup.find_all('table')[tbl_nm]
     df = parse_html_table(table)
     #df=df.astype(float)
@@ -82,6 +84,11 @@ def get_stats(url, stat_type, year = 'current'):
     stats = {}
     for cat in categories:
         if (cat in df.columns):
-            stats[cat] = df[cat][row]
+            s = df[cat][row]
+            if s == '-':
+                stats[cat] = 0
+            else:
+                stats[cat] = s
+            
     return stats
 
