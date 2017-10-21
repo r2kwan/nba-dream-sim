@@ -14,7 +14,7 @@ from random import random
 
 def main():
 
-    print ("Welcome to Raymond Kwan's NBA game simulator!")
+    print ("Welcome to Raymond Kwan's NBA Dream Simulator!")
     print ("Pick any 5 current players on to be on each team, and see how these hypothetical teams match up in a simulated game.")
 
     urls = {}
